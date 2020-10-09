@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'; 
 import { inject, observer } from 'mobx-react';
 import './App.css';
+import Child from './components/Child.js'
 
 function App({as, bs}) {
   
@@ -9,7 +10,7 @@ function App({as, bs}) {
 
   const totalCount = useMemo(() => {
     return countAs + countBs
-  }, [countAs])
+  }, [countAs, countBs])
 
   return (
     <div className="App">
@@ -18,6 +19,8 @@ function App({as, bs}) {
       <div>bs: {countBs}</div>
       <button onClick={addBs}>add bs</button>
       <div>all: {totalCount}</div>
+
+      <Child></Child>
     </div>
   );
 }
